@@ -1,7 +1,8 @@
-import { getPage, getPages } from '@/app/source';
-import type { Metadata } from 'next';
-import { DocsPage, DocsBody } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
+import { getPage, getPages } from "@/app/source";
+import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
+import { DocsBody, DocsPage } from "fumadocs-ui/page";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export default async function Page({
   params,
@@ -20,7 +21,15 @@ export default async function Page({
     <DocsPage toc={page.data.exports.toc}>
       <DocsBody>
         <h1>{page.data.title}</h1>
-        <MDX />
+        <MDX
+          components={{
+            pre: ({ ref: _ref, title, ...props }) => (
+              <CodeBlock title={title}>
+                <Pre {...props} />
+              </CodeBlock>
+            ),
+          }}
+        />
       </DocsBody>
     </DocsPage>
   );
