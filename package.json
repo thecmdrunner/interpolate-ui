@@ -8,12 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@remotion/player": "^4.0.163",
     "fumadocs-core": "^11.2.1",
     "fumadocs-mdx": "^8.2.23",
     "fumadocs-ui": "^11.2.1",
     "next": "^14.2.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.163",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13",
