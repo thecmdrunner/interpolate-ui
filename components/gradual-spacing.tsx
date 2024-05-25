@@ -80,6 +80,7 @@ export default () => {
   return (
     <div className="w-96 h-[216px] rounded-lg overflow-hidden border border-slate-400 bg-white">
       <Player
+        loop
         controls
         allowFullscreen
         autoPlay
