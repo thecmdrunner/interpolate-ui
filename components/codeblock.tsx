@@ -7,7 +7,8 @@ export default async function CodeBlock() {
   const _code = fs.readFileSync(`./components/${componentName}.tsx`, "utf-8");
   const codeToShow = _code.split("// COMPONENT_END")[0]!;
 
-  const WordsGradualSpacing = await import(`./${componentName}`).then(
+  // BTW, not specifying the extension also works...
+  const WordsGradualSpacing = await import(`./${componentName}.tsx`).then(
     (mod) => mod.default
   );
 
