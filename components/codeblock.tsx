@@ -1,9 +1,15 @@
 import fs from "fs";
-import WordsGradualSpacing from "./gradual-spacing";
+const componentName = `gradual-spacing`;
+
+// import WordsGradualSpacing from "./gradual-spacing";
 
 export default async function CodeBlock() {
-  const _code = fs.readFileSync("./components/gradual-spacing.tsx", "utf-8");
+  const _code = fs.readFileSync(`./components/${componentName}.tsx`, "utf-8");
   const codeToShow = _code.split("// COMPONENT_END")[0]!;
+
+  const WordsGradualSpacing = await import(`./${componentName}.tsx`).then(
+    (mod) => mod.default
+  );
 
   return (
     <>
