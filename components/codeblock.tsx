@@ -4,11 +4,12 @@ const componentName = `gradual-spacing`;
 // import WordsGradualSpacing from "./gradual-spacing";
 
 export default async function CodeBlock() {
-  const _code = fs.readFileSync(`./components/${componentName}.tsx`, "utf-8");
+  const fileName = `${componentName}.tsx`;
+  const _code = fs.readFileSync(`./components/${fileName}`, "utf-8");
   const codeToShow = _code.split("// COMPONENT_END")[0]!;
 
   // BTW, not specifying the extension also works...
-  const WordsGradualSpacing = await import(`./${componentName}.tsx`).then(
+  const WordsGradualSpacing = await import(`@/components/${fileName}`).then(
     (mod) => mod.default
   );
 
